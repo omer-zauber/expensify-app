@@ -8,7 +8,7 @@ const Header = () => (
     <p>
       <NavLink to ="/" activeClassName="is-active" exact={true}>Home</NavLink> |
       <NavLink to ="/create" activeClassName="is-active" exact={true}>Create</NavLink> |
-      <NavLink to ="/edit" activeClassName="is-active" exact={true}>Edit</NavLink> |
+      
       <NavLink to ="/help" activeClassName="is-active" exact={true}>Help</NavLink>     
     </p>
   </header>
