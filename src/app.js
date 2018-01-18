@@ -20,19 +20,19 @@ store.subscribe(() =>{
 store.dispatch(addExpense({
   description: 'Water Bill',
   amount: 200,
-  createdAt: Date.now()
+  createdAt: Date.now() - 86400000
 }));
 
 store.dispatch(addExpense({
   description: 'Gas Bill',
   amount: 250,
-  createdAt: Date.now()+3000
+  createdAt: Date.now()+30000
 }));
 
 store.dispatch(addExpense({
   description: 'rent',
   amount: 2000,
-  createdAt: Date.now()-1000
+  createdAt: 0
 }));
 
 const jsx = (
