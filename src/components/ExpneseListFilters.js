@@ -1,21 +1,19 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { DateRangePicker } from 'react-dates';
-import { setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate } from '../actions/filters'
+import { setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate } from '../actions/filters';
 
-class ExpenseListFilters extends React.Component{
-  state= {
-    calanderFocused: null
+class ExpenseListFilters extends React.Component {
+  state = {
+    calendarFocused: null
   };
-  onDatesChange =({ startDate, endDate }) => {
+  onDatesChange = ({ startDate, endDate }) => {
     this.props.dispatch(setStartDate(startDate));
     this.props.dispatch(setEndDate(endDate));
   };
-
-  onFocusChange = (calanderFocused) => {
-    this.setState(() => ({calanderFocused}));
-  };
-  
+  onFocusChange = (calendarFocused) => {
+    this.setState(() => ({ calendarFocused }));
+  }
   render() {
     return (
       <div>
@@ -29,10 +27,13 @@ class ExpenseListFilters extends React.Component{
         <select
           value={this.props.filters.sortBy}
           onChange={(e) => {
-            e.target.value === 'date' ?
-              this.props.dispatch(sortByDate())
-              : this.props.dispatch(sortByAmount());
-          }}>
+            if (e.target.value === 'date') {
+              this.props.dispatch(sortByDate());
+            } else if (e.target.value === 'amount') {
+              this.props.dispatch(sortByAmount());
+            }
+          }}
+        >
           <option value="date">Date</option>
           <option value="amount">Amount</option>
         </select>
@@ -40,23 +41,21 @@ class ExpenseListFilters extends React.Component{
           startDate={this.props.filters.startDate}
           endDate={this.props.filters.endDate}
           onDatesChange={this.onDatesChange}
-          focusedInput={this.state.calanderFocused}
+          focusedInput={this.state.calendarFocused}
           onFocusChange={this.onFocusChange}
           showClearDates={true}
           numberOfMonths={1}
           isOutsideRange={() => false}
-          displayFormat={'DD/MM/YYYY'}
         />
       </div>
-    )
+    );
   }
-}
-
+};
 
 const mapStateToProps = (state) => {
   return {
     filters: state.filters
-  }
-}
+  };
+};
 
 export default connect(mapStateToProps)(ExpenseListFilters);
