@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ExpenseList from './ExpenseList';
-import ExpenseListFilters from './ExpneseListFilters'
+import ExpenseListFilters from './ExpeneseListFilters'
 
 
 const ExpenseDashboardPage = () => (
