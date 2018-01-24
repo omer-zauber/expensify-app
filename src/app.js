@@ -9,6 +9,9 @@ import getVisibleExpenses from './selectors/expenses';
 import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
+import numeral from 'numeral';
+import ilLocale from './locale/ilLocale';
+ilLocale();
 
 const store = configureStore();
 

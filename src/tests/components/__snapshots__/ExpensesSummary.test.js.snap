@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correct message for 0 expenses 1`] = `<div />`;
+
+exports[`should render correct message for multiple expenses 1`] = `
+<div>
+  <p>
+    Viewing 
+    3
+     expense
+    s
+     totalling 
+    $1,141.95
+  </p>
+</div>
+`;
+
+exports[`should render correct message for one expenses 1`] = `
+<div>
+  <p>
+    Viewing 
+    1
+     expense
+     totalling 
+    $45.00
+  </p>
+</div>
+`;
