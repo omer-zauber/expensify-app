@@ -1,0 +1,133 @@
+
+// database.ref('notes').push({
+//   title: 'tjetjtj',
+//   body:'gsgddgsgsddsgsdgsg'
+// });
+
+
+// const onValueChange = database.ref().on('value', (snap) => {
+//   const { name, age, job, location } = snap.val();
+//   const { title, company } = job, { city, country } = location;
+//   console.log(`${name} is a ${age} years old ${title} at ${company}, located at ${city}, ${country}.`);  
+// });
+
+// setTimeout(() => {
+//   database.ref().update({
+//     name: 'Orer Zaurer',
+//     age: 36776,
+//     'location/city': 'Petah Tikvah'
+//   });
+// }, 3500);
+
+// setTimeout(() => {
+//   database.ref().off('value', onValueChange);
+// }, 5000);
+
+// database.ref().on('value', (snapshot) => {
+//   console.log(snapshot.val());
+// });
+
+// setTimeout(() => {
+//   database.ref('age').set(90);
+// }, 3500);
+
+// setTimeout(() => {
+//   database.ref().off();
+// }, 5000);
+
+// setTimeout(() => {
+//   database.ref('age').set(9999);
+// }, 5500);
+// database.ref('expenses')
+//   .on('child_changed', (snap) => {
+//       console.log(snap.key, snap.val());
+// });
+
+
+// database.ref('expenses')
+//   .on('value', (snap) => {
+//     const expenses = [];
+//     snap.forEach(childSnap => {
+//       expenses.push({
+//         id: childSnap.key,
+//         ...childSnap.val()
+//       });
+//     });
+//     console.log(expenses);
+//   });
+
+// database.ref('expenses')
+//   .once('value')
+//   .then((snap) => {
+//     const expenses=[];
+//     snap.forEach(childSnap => {
+//       expenses.push({
+//         id: childSnap.key,
+//         ...childSnap.val()
+//       });
+//     });
+//     console.log(expenses);
+//   })
+
+// const expenses = [{
+//   description: 'Gum',
+//   note: '',
+//   amount: 195,
+//   createdAt: 0
+// }, {
+//   description: 'Rent',
+//   note: '',
+//   amount: 109500,
+//   createdAt: moment(0).subtract(4, 'days').valueOf()
+// }, {
+//   description: 'Credit Card',
+//   note: '',
+//   amount: 4500,
+//   createdAt: moment(0).add(4, 'days').valueOf()
+// }];
+
+
+// expenses.map((expense)=> {
+//   database.ref('expenses').push(expense);
+// });
+
+
+
+// database.ref('location/city')
+//   .once('value')
+//   .then((snap) => {console.log(snap.val())})
+//   .catch(e => {console.log(e)});
+
+// database.ref().set({
+//   name: 'Omer Zauber',
+//   age: 32,
+//   stressLevel: 70000,
+//   job: {
+//     title: 'CEO',
+//     company: 'Blizzard Entertainment'
+//   },
+//   location: {
+//     city: "Rehovot",
+//     country: "Israel"
+//   }
+// }).then(()=> console.log('Data is saved.'))
+// .catch(e=>console.log(e));
+
+// database.ref().update({
+//   stressLevel: 90000,
+//   'job/company': 'amazon',
+//   'location/city': 'Kiryat Gat'
+// });
+
+// database
+//   .ref('user/isSingle')
+//   .remove()
+//   .then(() => console.log("removed 'user/isSingle'"))
+//   .catch((e) => console.log("You're an idiot: ", e));
+
+// database.ref('user').update({
+//   name: 'Mike',
+//   age: 'Zona',
+//   isSingle: null,
+//   job: 'unemployed'
+// })

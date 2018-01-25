@@ -7,11 +7,11 @@ import { addExpense, removeExpense, editExpense } from "./actions/expenses";
 import { setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate } from "./actions/filters";
 import getVisibleExpenses from './selectors/expenses';
 import 'normalize.css/normalize.css';
+import './locale/ilLocale';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
-import numeral from 'numeral';
-import ilLocale from './locale/ilLocale';
-ilLocale();
+import './firebase/firebase'
+
 
 const store = configureStore();
 
