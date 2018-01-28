@@ -15,7 +15,12 @@ export const startAddExpense = (expenseData = {}) => {
       amount = 0,
       createdAt = 0
     } = expenseData;
-    const expense = { description, note, amount, createdAt };
+    const expense = { 
+      description, 
+      note, 
+      amount, 
+      createdAt 
+    };
     return database.ref('expenses').push(expense).then((ref) => {
       dispatch(addExpense({
         id: ref.key,
@@ -41,4 +46,19 @@ export const setExpenses = (expenses) => ({
   expenses
 });
 
-//export const startSetExpenses;
+export const startSetExpenses = () => {
+  return (dispatch) => {
+    return database.ref('expenses')
+      .once('value')
+      .then((snap) => {
+        const expenses = [];
+        snap.forEach((childSnap) => {
+          expenses.push({
+            id: childSnap.key,
+            ...childSnap.val()
+          });
+        });
+        dispatch(setExpenses(expenses));
+      });
+  }
+};
