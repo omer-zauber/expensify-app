@@ -75,18 +75,6 @@ test('should setup edit expense in firebase', () => {
   });
 });
 
-// store.dispatch(startRemoveExpense({ id })).then(() => {
-//   const actions = store.getActions();
-//   expect(actions[0]).toEqual({
-//     type: 'REMOVE_EXPENSE',
-//     id
-//   });
-//   return database.ref(`expenses/${id}`).once('value');
-// }).then((snap) => {
-//   expect(snap.val()).toBeFalsy();
-//   done();
-// });
-
 test('should setup add expense action object with provided values', () => {
   const action = addExpense(expenses[2]);
   expect(action).toEqual({
